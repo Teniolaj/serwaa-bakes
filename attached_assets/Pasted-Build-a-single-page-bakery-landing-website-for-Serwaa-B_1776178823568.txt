@@ -1,0 +1,29 @@
+Build a single-page bakery landing website for Serwaa Bakes using HTML, CSS, and vanilla JavaScript. The design should replicate this aesthetic: dark/near-black background, elegant script + serif font combination (use Google Fonts — "Playfair Display" and "Dancing Script"), warm rose/salmon accent color (#E8A598 or similar), and a clean minimal nav. Here are the sections to build:
+1. Navbar — Logo text "Serwaa Bakes" in script font, nav links: Home, Menu, Gallery, Contact. Add a "Order Now" CTA button in the rose accent color.
+2. Hero Section — Full-width dark background with a background image overlay (use a placeholder food/cake image). Large headline: "Handcrafted with Love" in Playfair Display. Subtext: "North Legon, Agbogba · Close to Wisconsin University". Two buttons: "View Menu" and "Order on WhatsApp" (link: https://wa.me/0554287120).
+3. Menu Section — Title: "Our Menu". Display the following items as a clean card grid (2–3 columns):
+
+Mini Pound Cakes (5 pcs) — 260gh
+Baked Doughnuts (60 pcs) — 100gh
+Butter Cookies (50 pcs) — 100gh
+Baked Chips (1 bag) — 120gh
+Fried Chips (1 bag) — 160gh
+Achomo (1 bag) — 170gh
+Achomo Jar — 70gh
+Loaf Cake (all flavors) — 120gh
+Short Bread Cookies (50 pcs) — 120gh
+Sugar Cookies (60 pcs) — 100gh
+Fruit Cake (loaf size) — 150gh
+Frozen Spring Roll (10 pcs) — 40gh
+Frozen Samosa (10 pcs) — 40gh
+
+Each card should have item name, price in accent color, and a subtle dark card background.
+4. Reviews Section — Title: "What People Say". Display 2 review cards side by side:
+
+Card 1: ⭐⭐⭐⭐⭐ — "Fried or baked the food was on point, well seasoned and just good. Hit the spot and the happy dance, even the watermelon juice was good. No complaints." — Going to dance & eat, coming? (Local Guide)
+Card 2: ⭐⭐⭐⭐⭐ — "Serwaa bakes helped us during my dad's founders day celebration and she delivered her best. Till today everyone praises her handwork. Well done Serwaa." — Patience Anyah
+
+Cards should have a slightly lighter dark background, gold stars, italic quote text, and reviewer name in accent color.
+5. Order / Contact Section — Simple CTA: "Ready to Order?" with a WhatsApp button linking to wa.me/0554287120 and the address: Akoto Bamfo Street, Royal Palm St, Haatso. Open until 7pm.
+6. Footer — "© 2025 Serwaa Bakes · Women-Owned Business 💜"
+Make it fully responsive (mobile-friendly). Use smooth scroll. Keep the overall vibe elegant, warm, and premium — like a boutique bakery, not a fast food shop.

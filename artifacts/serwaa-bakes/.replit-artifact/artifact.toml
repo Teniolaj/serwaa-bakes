@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Serwaa Bakes"
+version = "1.0.0"
+id = "artifacts/serwaa-bakes"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20958
+
+[services.development]
+run = "pnpm --filter @workspace/serwaa-bakes run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/serwaa-bakes", "run", "build" ]
+publicDir = "artifacts/serwaa-bakes/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20958"
+BASE_PATH = "/"

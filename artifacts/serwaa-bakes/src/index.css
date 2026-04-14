@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-border: var(--card-border);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-border: var(--popover-border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-script: 'Dancing Script', cursive;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #0f0d0d;
+  --foreground: #f5ede8;
+
+  --card: #1a1714;
+  --card-foreground: #f5ede8;
+  --card-border: #211d1a;
+
+  --popover: #1a1714;
+  --popover-foreground: #f5ede8;
+  --popover-border: #211d1a;
+
+  --primary: #E8A598;
+  --primary-foreground: #0f0d0d;
+
+  --secondary: #211d1a;
+  --secondary-foreground: #f5ede8;
+
+  --muted: #1a1714;
+  --muted-foreground: #b0948a;
+
+  --accent: #E8A598;
+  --accent-foreground: #0f0d0d;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #211d1a;
+  --input: #211d1a;
+  --ring: #E8A598;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0f0d0d;
+  --foreground: #f5ede8;
+
+  --card: #1a1714;
+  --card-foreground: #f5ede8;
+  --card-border: #211d1a;
+
+  --popover: #1a1714;
+  --popover-foreground: #f5ede8;
+  --popover-border: #211d1a;
+
+  --primary: #E8A598;
+  --primary-foreground: #0f0d0d;
+
+  --secondary: #211d1a;
+  --secondary-foreground: #f5ede8;
+
+  --muted: #1a1714;
+  --muted-foreground: #b0948a;
+
+  --accent: #E8A598;
+  --accent-foreground: #0f0d0d;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #211d1a;
+  --input: #211d1a;
+  --ring: #E8A598;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}

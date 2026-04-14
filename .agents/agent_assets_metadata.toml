@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "r2eAOLLakx9YU6SvTffxT"
+uri = "file://artifacts/serwaa-bakes/public/hero-bg.png"
+type = "image"
+title = "Dark bakery spread hero image"
+
+[[generated]]
+id = "rR8jJ-cF76GRvfDlI8Xgn"
+uri = "file://artifacts/serwaa-bakes/public/menu-decor.png"
+type = "image"
+title = "Tasteful baked goods decoration"
