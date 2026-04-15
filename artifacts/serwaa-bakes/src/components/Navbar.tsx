@@ -106,10 +106,12 @@ export function Navbar() {
                 e.preventDefault();
                 scrollToSection("home");
               }}
-              className="flex items-center shrink-0"
-              aria-label="Serwaa Bakes — Home"
+              className="flex min-w-0 items-center gap-2 sm:gap-3 shrink-0"
             >
-              <BrandLogo />
+              <BrandLogo decorative />
+              <span className="font-serif text-lg sm:text-xl font-semibold italic tracking-tight text-accent truncate">
+                Serwaa Bakes
+              </span>
             </a>
 
             <div className="hidden md:flex items-center space-x-8">
