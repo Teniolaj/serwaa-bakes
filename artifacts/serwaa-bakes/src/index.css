@@ -44,70 +44,71 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Orange-forward brand: deep warm base + orange accent + cream text */
 :root {
-  --background: #0f0d0d;
-  --foreground: #f5ede8;
+  --background: #100805;
+  --foreground: #fff7ed;
 
-  --card: #1a1714;
-  --card-foreground: #f5ede8;
-  --card-border: #211d1a;
+  --card: #1a0f08;
+  --card-foreground: #fff7ed;
+  --card-border: #3a2618;
 
-  --popover: #1a1714;
-  --popover-foreground: #f5ede8;
-  --popover-border: #211d1a;
+  --popover: #1a0f08;
+  --popover-foreground: #fff7ed;
+  --popover-border: #3a2618;
 
-  --primary: #E8A598;
-  --primary-foreground: #0f0d0d;
+  --primary: #f97316;
+  --primary-foreground: #0c0a09;
 
-  --secondary: #211d1a;
-  --secondary-foreground: #f5ede8;
+  --secondary: #29180f;
+  --secondary-foreground: #fff7ed;
 
-  --muted: #1a1714;
-  --muted-foreground: #b0948a;
+  --muted: #1f120c;
+  --muted-foreground: #c4b5a8;
 
-  --accent: #E8A598;
-  --accent-foreground: #0f0d0d;
+  --accent: #f97316;
+  --accent-foreground: #0c0a09;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #211d1a;
-  --input: #211d1a;
-  --ring: #E8A598;
-  
+  --border: #3a2618;
+  --input: #3a2618;
+  --ring: #fb923c;
+
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: #0f0d0d;
-  --foreground: #f5ede8;
+  --background: #100805;
+  --foreground: #fff7ed;
 
-  --card: #1a1714;
-  --card-foreground: #f5ede8;
-  --card-border: #211d1a;
+  --card: #1a0f08;
+  --card-foreground: #fff7ed;
+  --card-border: #3a2618;
 
-  --popover: #1a1714;
-  --popover-foreground: #f5ede8;
-  --popover-border: #211d1a;
+  --popover: #1a0f08;
+  --popover-foreground: #fff7ed;
+  --popover-border: #3a2618;
 
-  --primary: #E8A598;
-  --primary-foreground: #0f0d0d;
+  --primary: #f97316;
+  --primary-foreground: #0c0a09;
 
-  --secondary: #211d1a;
-  --secondary-foreground: #f5ede8;
+  --secondary: #29180f;
+  --secondary-foreground: #fff7ed;
 
-  --muted: #1a1714;
-  --muted-foreground: #b0948a;
+  --muted: #1f120c;
+  --muted-foreground: #c4b5a8;
 
-  --accent: #E8A598;
-  --accent-foreground: #0f0d0d;
+  --accent: #f97316;
+  --accent-foreground: #0c0a09;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #211d1a;
-  --input: #211d1a;
-  --ring: #E8A598;
+  --border: #3a2618;
+  --input: #3a2618;
+  --ring: #fb923c;
 }
 
 @layer base {
@@ -118,8 +119,19 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep scroll (menu grid) */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }

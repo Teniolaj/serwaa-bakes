@@ -2,13 +2,6 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Search } from "lucide-react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -48,6 +41,14 @@ function siblingsFor(item: MenuCatalogItem): MenuCatalogItem[] {
     .sort((a, b) => a.sortValue - b.sortValue);
 }
 
+function chunkRows<T>(items: T[], perRow: number): T[][] {
+  const rows: T[][] = [];
+  for (let i = 0; i < items.length; i += perRow) {
+    rows.push(items.slice(i, i + perRow));
+  }
+  return rows;
+}
+
 /** Static hero image above the gallery (`public/menu/pastery/`). */
 const MENU_HERO_SRC = "/menu/pastery/box-9-cupcake-180-250.jpg";
 
@@ -69,9 +70,11 @@ export function Menu() {
     [modalItem]
   );
 
+  const gridRows = useMemo(() => chunkRows(filtered, 3), [filtered]);
+
   return (
     <section id="menu" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#211d1a] to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -110,7 +113,7 @@ export function Menu() {
 
         {/* Filter tabs */}
         <div
-          className="flex justify-center gap-0 mb-10 border-b border-card-border max-w-md mx-auto"
+          className="flex flex-wrap justify-center gap-0 mb-10 border-b border-card-border max-w-3xl mx-auto"
           role="tablist"
           aria-label="Menu category"
         >
@@ -124,7 +127,7 @@ export function Menu() {
                 aria-selected={active}
                 onClick={() => setCategory(c.id)}
                 className={cn(
-                  "relative flex-1 px-4 py-3 text-sm font-medium tracking-wide uppercase transition-colors",
+                  "relative flex-1 min-w-[28%] sm:min-w-0 px-2 sm:px-4 py-3 text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors",
                   active
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground/90"
@@ -157,88 +160,70 @@ export function Menu() {
             exit="exit"
             className="max-w-7xl mx-auto"
           >
-            <div className="relative">
-              {/* Edge fades so the slider feels inset */}
+            <div className="relative max-w-5xl mx-auto">
               <div
-                className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 sm:w-14 bg-linear-to-r from-background via-background/80 to-transparent"
+                className="pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-linear-to-b from-background via-background/90 to-transparent"
                 aria-hidden
               />
               <div
-                className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 sm:w-14 bg-linear-to-l from-background via-background/80 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-linear-to-t from-background via-background/90 to-transparent"
                 aria-hidden
               />
 
-              <Carousel
-                key={category}
-                opts={{
-                  align: "start",
-                  loop: true,
-                  dragFree: false,
-                }}
-                className="w-full"
+              <div
+                className="scrollbar-none overflow-y-auto overscroll-contain scroll-smooth rounded-xl border border-card-border/60 bg-card/20 px-2 py-2 sm:px-3 sm:py-3 [--menu-card-h:176px] sm:[--menu-card-h:196px] [max-height:calc(3*var(--menu-card-h)+2rem)]"
+                tabIndex={0}
+                role="region"
+                aria-label={`${MENU_CATEGORIES.find((c) => c.id === category)?.label ?? "Menu"} — scroll for more`}
               >
-                <CarouselContent className="-ml-2.5 sm:-ml-3 md:-ml-4 pb-1">
-                  {filtered.map((item) => (
-                    <CarouselItem
-                      key={item.id}
-                      className="pl-2.5 sm:pl-3 md:pl-4 basis-[72%] min-[380px]:basis-[64%] sm:basis-[46%] md:basis-[32%] lg:basis-[26%] xl:basis-[22%]"
+                <div className="space-y-2 sm:space-y-2">
+                  {gridRows.map((row, rowIdx) => (
+                    <div
+                      key={rowIdx}
+                      className="grid grid-cols-3 gap-2 sm:gap-3 w-full"
                     >
-                      <button
-                        type="button"
-                        onClick={() => setModalItem(item)}
-                        className="group relative mx-auto w-full max-w-[min(82vw,240px)] aspect-[3/4] overflow-hidden rounded-xl border border-card-border bg-card text-left shadow-[0_12px_40px_rgba(0,0,0,0.35)] outline-none transition-[transform,box-shadow] duration-300 hover:border-accent/35 hover:shadow-[0_16px_48px_rgba(232,165,152,0.12)] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:mx-0 sm:max-w-none sm:aspect-4/5"
-                      >
-                        <img
-                          src={item.imageSrc}
-                          alt={item.name}
-                          className="absolute inset-0 h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                          loading="lazy"
-                        />
-                        <div
-                          className="absolute inset-0 bg-linear-to-t from-background via-background/25 to-transparent opacity-90 md:opacity-82"
-                          aria-hidden
-                        />
-                        <div className="absolute inset-0 flex flex-col justify-end p-3 md:p-4">
-                          <p className="font-serif text-sm md:text-base text-foreground leading-snug line-clamp-2 pr-1">
-                            {item.name}
-                          </p>
-                          <p className="text-accent font-serif font-semibold text-base md:text-lg mt-1">
-                            GH₵ {item.priceLabel}
-                          </p>
-                        </div>
-                        <div
-                          className="absolute inset-0 flex items-center justify-center bg-background/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
-                          aria-hidden
+                      {row.map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setModalItem(item)}
+                          className="group relative w-full h-[var(--menu-card-h)] overflow-hidden rounded-lg border border-card-border bg-card text-left shadow-md outline-none transition-[transform,box-shadow] duration-300 hover:border-accent/40 hover:shadow-[0_8px_28px_rgba(249,115,22,0.12)] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
-                          <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-foreground/20 bg-background/75 text-foreground shadow-lg backdrop-blur-sm">
-                            <Search className="h-5 w-5" strokeWidth={1.75} />
-                          </span>
-                        </div>
-                      </button>
-                    </CarouselItem>
+                          <img
+                            src={item.imageSrc}
+                            alt=""
+                            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                            loading="lazy"
+                          />
+                          <div
+                            className="absolute inset-0 bg-linear-to-t from-background/95 via-background/35 to-transparent pointer-events-none"
+                            aria-hidden
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 z-[1] flex flex-col items-start text-left p-2 sm:p-2.5 pt-8 sm:pt-10">
+                            <p className="font-serif text-[10px] sm:text-xs text-foreground leading-snug line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
+                              {item.name}
+                            </p>
+                            <p className="text-accent font-serif font-semibold text-xs sm:text-sm mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.75)]">
+                              GH₵ {item.priceLabel}
+                            </p>
+                          </div>
+                          <div
+                            className="absolute inset-0 z-[2] flex items-center justify-center bg-background/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-visible:pointer-events-auto"
+                          >
+                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-foreground/20 bg-background/85 text-foreground shadow-md backdrop-blur-sm pointer-events-none">
+                              <Search className="h-4 w-4" strokeWidth={1.75} />
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
                   ))}
-                </CarouselContent>
-                <CarouselPrevious
-                  variant="outline"
-                  className={cn(
-                    "h-10 w-10 rounded-full border-card-border bg-background/90 text-foreground shadow-md backdrop-blur-sm",
-                    "left-0 sm:left-1 top-[42%] z-20 -translate-y-1/2",
-                    "disabled:opacity-20"
-                  )}
-                />
-                <CarouselNext
-                  variant="outline"
-                  className={cn(
-                    "h-10 w-10 rounded-full border-card-border bg-background/90 text-foreground shadow-md backdrop-blur-sm",
-                    "right-0 sm:right-1 top-[42%] z-20 -translate-y-1/2",
-                    "disabled:opacity-20"
-                  )}
-                />
-              </Carousel>
+                </div>
+              </div>
             </div>
 
-            <p className="mt-4 text-center text-xs text-muted-foreground/90 sm:hidden">
-              Swipe sideways to browse
+            <p className="mt-4 text-center text-xs text-muted-foreground/90">
+              Three items per row — about three rows stay in view; scroll for the rest.
             </p>
           </motion.div>
         </AnimatePresence>
@@ -251,7 +236,7 @@ export function Menu() {
             href="https://wa.me/0554287120"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#1a1714] border border-[#211d1a] text-foreground hover:bg-[#211d1a] hover:border-accent/50 px-8 py-3 text-sm font-medium transition-all"
+            className="inline-flex items-center justify-center rounded-full bg-card border border-border text-foreground hover:bg-secondary hover:border-accent/50 px-8 py-3 text-sm font-medium transition-all"
           >
             Message us for custom orders
           </a>

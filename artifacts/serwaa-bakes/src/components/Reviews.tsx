@@ -18,7 +18,7 @@ export function Reviews() {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-[#110e0d] relative overflow-hidden">
+    <section id="gallery" className="py-24 bg-muted/40 relative overflow-hidden">
       {/* Decorative subtle glows */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -46,7 +46,7 @@ export function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-[#211d1a] p-8 md:p-10 rounded-2xl border border-white/5 relative"
+              className="bg-card p-8 md:p-10 rounded-2xl border border-border relative"
             >
               <div className="absolute -top-4 -left-2 text-6xl text-accent/20 font-serif leading-none">
                 "

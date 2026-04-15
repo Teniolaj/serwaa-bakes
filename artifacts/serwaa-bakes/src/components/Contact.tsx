@@ -3,7 +3,7 @@ import { MapPin, Clock, MessageCircle } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 bg-background relative border-t border-[#211d1a]">
+    <section id="contact" className="py-24 bg-background relative border-t border-border">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export function Contact() {
             Message us on WhatsApp
           </a>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-[#211d1a] relative z-10 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-border relative z-10 text-left">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0 border border-accent/20">
                 <MapPin className="text-accent w-6 h-6" />

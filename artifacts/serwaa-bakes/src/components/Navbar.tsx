@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/BrandLogo";
 
 const linkContainer = {
   hidden: { opacity: 0 },
@@ -93,7 +94,7 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#0f0d0d]/95 backdrop-blur-md border-b border-[#211d1a] py-3"
+            ? "bg-background/95 backdrop-blur-md border-b border-border py-3"
             : "bg-transparent py-5"
         }`}
       >
@@ -105,9 +106,10 @@ export function Navbar() {
                 e.preventDefault();
                 scrollToSection("home");
               }}
-              className="text-3xl md:text-4xl font-script text-accent font-bold tracking-wider"
+              className="flex items-center shrink-0"
+              aria-label="Serwaa Bakes — Home"
             >
-              Serwaa Bakes
+              <BrandLogo />
             </a>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -181,7 +183,7 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="fixed inset-0 z-100 flex md:hidden min-h-dvh flex-col bg-[#0f0d0d] pt-[env(safe-area-inset-top)] shadow-[0_0_60px_rgba(0,0,0,0.5)]"
+            className="fixed inset-0 z-100 flex md:hidden min-h-dvh flex-col bg-background pt-[env(safe-area-inset-top)] shadow-[0_0_60px_rgba(0,0,0,0.45)]"
             initial={
               reduceMotion
                 ? { opacity: 0 }
@@ -200,20 +202,23 @@ export function Navbar() {
             transition={panelTransition}
           >
             <motion.div
-              className="flex shrink-0 items-center justify-between border-b border-[#211d1a] px-4 py-4"
+              className="flex shrink-0 items-center justify-between border-b border-border px-4 py-4"
               initial={reduceMotion ? false : { opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduceMotion ? 0 : 0.05, duration: 0.3 }}
             >
               <a
                 href="#home"
-                className="text-2xl font-script text-accent font-bold tracking-wider"
+                className="flex min-w-0 items-center gap-3"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("home");
                 }}
               >
-                Serwaa Bakes
+                <BrandLogo compact decorative />
+                <span className="font-serif text-lg font-semibold italic tracking-tight text-accent truncate">
+                  Serwaa Bakes
+                </span>
               </a>
               <motion.button
                 type="button"
@@ -241,7 +246,7 @@ export function Navbar() {
                     <button
                       type="button"
                       onClick={() => scrollToSection(link.id)}
-                      className="text-left text-foreground hover:text-accent text-lg py-4 border-b border-[#211d1a]/50 w-full transition-colors"
+                      className="text-left text-foreground hover:text-accent text-lg py-4 border-b border-border/80 w-full transition-colors"
                     >
                       {link.name}
                     </button>

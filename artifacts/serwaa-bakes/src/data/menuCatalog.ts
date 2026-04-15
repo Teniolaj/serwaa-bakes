@@ -1,6 +1,6 @@
 import { parseMenuFilename } from "@/lib/parseMenuFilename";
 
-export type MenuCategory = "cakes" | "pastery";
+export type MenuCategory = "cakes" | "pastery" | "daily_snacks";
 
 export type MenuCatalogItem = {
   id: string;
@@ -36,18 +36,20 @@ const RAW: { path: string; category: MenuCategory }[] = [
   { path: "/menu/cakes/5-inch-vintage-cake-3-250.jpg", category: "cakes" },
   { path: "/menu/cakes/7-inch-double-layer-550.jpg", category: "cakes" },
   { path: "/menu/cakes/6-inch-graduation-cake-300.jpg", category: "cakes" },
-  { path: "/menu/pastery/6-milky-donuts-100.jpg", category: "pastery" },
-  { path: "/menu/pastery/cake-in-tub-small-45.jpg", category: "pastery" },
-  { path: "/menu/pastery/3-milky-donuts-50.jpg", category: "pastery" },
-  { path: "/menu/pastery/pastry-package3-160.jpg", category: "pastery" },
-  { path: "/menu/pastery/3-milky-donuts-2-50.jpg", category: "pastery" },
-  { path: "/menu/pastery/pastry-package-230.jpg", category: "pastery" },
-  { path: "/menu/pastery/cake-in-cup-big-50.jpg", category: "pastery" },
+
   { path: "/menu/pastery/small-chops-pack-60.jpg", category: "pastery" },
-  { path: "/menu/pastery/cake-in-tub-big-55.jpg", category: "pastery" },
-  { path: "/menu/pastery/box-9-cupcake-180-250.jpg", category: "pastery" },
   { path: "/menu/pastery/box-6-cupcake-160.jpg", category: "pastery" },
-  { path: "/menu/pastery/fried-spring-roll-samosa-5pcs-40.jpg", category: "pastery" },
+  { path: "/menu/pastery/box-9-cupcake-180-250.jpg", category: "pastery" },
+
+  { path: "/menu/pastery/6-milky-donuts-100.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/3-milky-donuts-50.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/3-milky-donuts-2-50.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/pastry-package3-160.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/pastry-package-230.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/fried-spring-roll-samosa-5pcs-40.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/cake-in-cup-big-50.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/cake-in-tub-small-45.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/cake-in-tub-big-55.jpg", category: "daily_snacks" },
 ];
 
 function buildCatalog(): MenuCatalogItem[] {
@@ -72,4 +74,5 @@ export const menuCatalog: MenuCatalogItem[] = buildCatalog();
 export const MENU_CATEGORIES: { id: MenuCategory; label: string }[] = [
   { id: "cakes", label: "Cakes" },
   { id: "pastery", label: "Pastries" },
+  { id: "daily_snacks", label: "Daily snacks" },
 ];
