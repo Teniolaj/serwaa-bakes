@@ -53,7 +53,7 @@ export function Hero() {
               onClick={scrollToMenu}
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto rounded-full border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg transition-all"
+              className="w-full sm:w-auto rounded-full border-accent text-accent hover:bg-accent hover:text-accent-foreground px-4 py-3 text-lg transition-all"
             >
               View Menu
             </Button>
@@ -62,7 +62,7 @@ export function Hero() {
               href="https://wa.me/0554287120"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-6 text-lg font-medium transition-colors shadow-[0_0_20px_rgba(232,165,152,0.3)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-3 text-lg font-medium transition-colors shadow-[0_0_20px_rgba(232,165,152,0.3)]"
             >
               Order on WhatsApp
             </a>

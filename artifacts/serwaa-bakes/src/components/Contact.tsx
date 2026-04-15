@@ -28,7 +28,7 @@ export function Contact() {
             href="https://wa.me/0554287120"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] hover:bg-[#20b858] text-white px-8 py-5 text-lg font-medium transition-all shadow-[0_0_30px_rgba(37,211,102,0.2)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:-translate-y-1 relative z-10 mb-12 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] hover:bg-[#20b858] text-white px-4 py-3 text-lg font-medium transition-all shadow-[0_0_30px_rgba(37,211,102,0.2)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:-translate-y-1 relative z-10 mb-12 w-full sm:w-auto"
           >
             <MessageCircle className="w-6 h-6" />
             Message us on WhatsApp

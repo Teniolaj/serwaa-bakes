@@ -8,7 +8,7 @@ export function Footer() {
           <div className="text-2xl font-script text-accent opacity-70 mb-6">Serwaa Bakes</div>
           
           <p className="text-muted-foreground/70 text-sm flex items-center justify-center gap-1.5">
-            &copy; 2025 Serwaa Bakes &middot; Women-Owned Business <span className="text-[#a855f7] inline-flex">💜</span>
+            &copy; 2026 Serwaa Bakes &middot; Women-Owned Business <span className="text-[#a855f7] inline-flex">💜</span>
           </p>
           
           <div className="mt-8 flex gap-4">
