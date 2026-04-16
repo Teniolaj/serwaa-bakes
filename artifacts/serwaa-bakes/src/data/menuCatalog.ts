@@ -42,14 +42,14 @@ const RAW: { path: string; category: MenuCategory }[] = [
   { path: "/menu/pastery/box-9-cupcake-180-250.jpg", category: "pastery" },
 
   { path: "/menu/pastery/6-milky-donuts-100.jpg", category: "daily_snacks" },
-  { path: "/menu/pastery/3-milky-donuts-50.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/4-milky-donuts-70.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/3-milky-donuts-2-50.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/pastry-package3-160.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/pastry-package-230.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/fried-spring-roll-samosa-5pcs-40.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/cake-in-cup-big-50.jpg", category: "daily_snacks" },
   { path: "/menu/pastery/cake-in-tub-small-45.jpg", category: "daily_snacks" },
-  { path: "/menu/pastery/cake-in-tub-big-55.jpg", category: "daily_snacks" },
+  { path: "/menu/pastery/cake-in-tub-big-65.jpg", category: "daily_snacks" },
 ];
 
 function buildCatalog(): MenuCatalogItem[] {

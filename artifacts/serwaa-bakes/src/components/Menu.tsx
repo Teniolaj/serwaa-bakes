@@ -176,7 +176,7 @@ export function Menu() {
                 role="region"
                 aria-label={`${MENU_CATEGORIES.find((c) => c.id === category)?.label ?? "Menu"} — scroll for more`}
               >
-                <div className="space-y-2 sm:space-y-2">
+                <div className="space-y-2 sm:space-y-2 pb-8">
                   {gridRows.map((row, rowIdx) => (
                     <div
                       key={rowIdx}
@@ -223,7 +223,7 @@ export function Menu() {
             </div>
 
             <p className="mt-4 text-center text-xs text-muted-foreground/90">
-              Three items per row — about three rows stay in view; scroll for the rest.
+              scroll to see other menu items.
             </p>
           </motion.div>
         </AnimatePresence>
